@@ -6,10 +6,13 @@ import { UserService } from '../../../auth';
 import { PostService } from '../../services/post/post.service';
 import { PostListItemComponent } from '../post-list-item/post-list-item.component';
 
+import { SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from 'ng-semantic';
+let DetectRTC = require('detectrtc');
+
 @Component({
   selector: 'post-list',
   template: template,
-  directives: [ROUTER_DIRECTIVES, PostListItemComponent],
+  directives: [SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES, ROUTER_DIRECTIVES, PostListItemComponent],
   changeDetection: ChangeDetectionStrategy.Detached
 })
 export class PostListComponent {
@@ -20,6 +23,8 @@ export class PostListComponent {
 
   ngOnInit() {
     this._postService.refreshPosts();
+    console.log(DetectRTC.browser);
+
   }
 
   getRemotePosts() {
