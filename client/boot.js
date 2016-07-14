@@ -1,5 +1,6 @@
 import './shim';
 import 'rxjs/add/operator/map';
+// import Raven from 'raven-js';
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { FORM_PROVIDERS, LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -25,5 +26,6 @@ bootstrap(AppComponent, [
   CORE_PROVIDERS,
 
   { provide: LocationStrategy, useClass: HashLocationStrategy },
-  { provide: 'ENVIRONMENT', useValue: ENVIRONMENT }
+  { provide: 'ENVIRONMENT', useValue: ENVIRONMENT },
+  { provide: 'PRIVATE_CONFIG', useValue: PRIVATE_CONFIG }
 ]);

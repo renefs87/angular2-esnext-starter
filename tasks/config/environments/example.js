@@ -1,3 +1,7 @@
-/**
- * Created by renefernandez on 13/07/16.
- */
+'use strict';
+
+module.exports = {
+    client: {
+        test: "NEW TEST"
+    }
+};
