@@ -11,7 +11,12 @@ import { MenuComponent } from '../menu/menu.component';
 })
 export class AppComponent {
 
-  constructor(@Inject('ENVIRONMENT') environment) {
+  constructor(@Inject('ENVIRONMENT') environment, @Inject('PRIVATE_CONFIG') privateConfig) {
     this.environment = environment;
+    this.privateConfig = privateConfig;
+  }
+
+  ngOnInit() {
+    console.log('App onInit');
   }
 }
