@@ -3,3 +3,13 @@ dist
 node_modules
 coverage
 npm-debug.log
+
+# Private configuration constants
+/tasks/config/environments/development.js
+/tasks/config/environments/production.js
+/tasks/config/environments/test.js
+
+# Needed to use SSL server for the application and livereload
+server.crt
+server.key
+
