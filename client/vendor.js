@@ -11,3 +11,5 @@ import '@angular/http';
 
 import 'detectrtc/DetectRTC.js';
 import './vendor_modules/test.js';
+
+import '@angular/forms';
