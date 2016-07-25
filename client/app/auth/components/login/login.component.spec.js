@@ -1,5 +1,5 @@
 import { TestComponentBuilder } from '@angular/core/testing';
-import { FormBuilder } from '@angular/common';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -21,22 +21,21 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     addProviders([
       TestComponentBuilder,
-      FormBuilder,
+      disableDeprecatedForms(),
+      provideForms(),
       HTTP_PROVIDERS,
       AUTH_TESTING_PROVIDERS,
       CORE_TESTING_PROVIDERS
     ]);
   });
 
-  beforeEach(async(inject([TestComponentBuilder], (componentBuilder) => {
-    return componentBuilder
-      .createAsync(LoginComponent)
-      .then(fixture => {
-        subject = fixture.componentInstance;
-        subjectElement = fixture.nativeElement;
-        subjectFixture = fixture;
-      });
-  })));
+  beforeEach(inject([TestComponentBuilder], (componentBuilder) => {
+    let fixture = componentBuilder.createSync(LoginComponent);
+
+    subject = fixture.componentInstance;
+    subjectElement = fixture.nativeElement;
+    subjectFixture = fixture;
+  }));
 
   it('should send login request', () => {
     stubLoginMethod(true);
